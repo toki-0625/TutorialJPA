@@ -52,16 +52,14 @@ public class CountryController {
     @GetMapping("/delete/{code}")
     public String deleteCountryForm(@PathVariable String code, Model model) {
         
-        
         model.addAttribute("code", code);
-        
         
         // country/delete.htmlに画面遷移
         return "country/delete";
     }
 
     // ----- 削除 -----
-    @PostMapping("/delete/{code}")
+    @PostMapping("/delete")
     public String deleteCountry(@RequestParam("code") String code, Model model) {
         // 削除
         service.deleteCountry(code);
